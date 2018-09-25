@@ -1,9 +1,4 @@
-class Playership() {
-  this.life;
-  this.weapon;
-  this.numBombs;
-  this.speed;
-  this.pos;
+class Playership {
   
   // create a ship
   constructor(x,y,s,w,b,l) {
@@ -12,11 +7,13 @@ class Playership() {
     this.weapon = w;
     this.numBombs = b;
     this.life = l;
+		this.w = 20;
+		this.h = 40;
   }
   
   // reset ship to default values
-  this.respawn = function() {
-    this.pos = createVector(width/2, height - 50);
+  respawn() {
+    this.pos = createVector(width/2, height - this.h*2);
     this.speed = 1;
     this.weapon = 0;
     this.numBombs = 0;
@@ -24,9 +21,14 @@ class Playership() {
   }
   
   // draw the ship
-  this.draw = function() {
+  drawShip() {
+		strokeWeight(2);
     stroke(255,0,0);
     fill(255);
-    rect(this.pos.x, this.pos.y, 20, 20);
+    rect(this.pos.x, this.pos.y, this.w, this.h);
   }
+	
+	moveShip() {
+		this.pos.x = constrain(mouseX, 0, width-this.w);
+	}
 }
