@@ -1,7 +1,13 @@
-setup() {
-  createCanvas(800, 600);
+var pship;
+
+function setup() {
+  createCanvas(400, 400);
+	pship = new Playership();
+	pship.respawn();
 }
 
-draw() {
-
+function draw() {
+  background(51);
+	pship.drawShip();
+	pship.moveShip();
 }
