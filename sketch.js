@@ -1,13 +1,15 @@
 var pship;
-
-var eship1;
+var eships_level1[];
 
 function setup() {
   createCanvas(400, 400);
 	pship = new Playership();
 	pship.respawn();
-	
-	eship1 = new Enemyship(random(0,width),-50,3,0,1);
+
+	for(var i = 0; i < 5; i++) {
+		var eship = new Enemyship(random(0,width-20),random(-20,-100),3,0,1);
+		eships_level1.push(eship);
+	}
 }
 
 function draw() {
@@ -15,6 +17,8 @@ function draw() {
 	pship.drawShip();
 	pship.moveShip();
 	
-	eship1.drawShip();
-	eship1.moveShip();
+	for(var i = 0; i < eships_level1.length; i++) {
+		eships_level1[i].drawShip();
+		eships_level1[i].moveShip();
+	}
 }
