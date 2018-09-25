@@ -5,7 +5,7 @@ class Bullet {
     this.enemy = enemy;
     }
     
-  showBullet() {
+  drawBullet() {
     noStroke();
     if(this.enemy) {
       fill(255,0,0);
