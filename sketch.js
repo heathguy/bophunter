@@ -1,6 +1,8 @@
 var pship;
 var eships_level1[];
 
+var bullet;
+
 function setup() {
   createCanvas(400, 400);
 	pship = new Playership();
@@ -10,6 +12,8 @@ function setup() {
 		var eship = new Enemyship(random(0,width-20),random(-20,-100),3,0,1);
 		eships_level1.push(eship);
 	}
+	
+	bullet = new Bullet(pship.pos.x,pship.pos.y,0,-3,0);
 }
 
 function draw() {
@@ -21,4 +25,7 @@ function draw() {
 		eships_level1[i].drawShip();
 		eships_level1[i].moveShip();
 	}
+	
+	bullet.drawBullet();
+	bullet.moveBullet();
 }
