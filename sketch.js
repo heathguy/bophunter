@@ -1,7 +1,7 @@
 var pship;
-var eships_level1[];
+var eships_level1 = [];
 
-var bullets[];
+var bullets = [];
 
 function setup() {
   createCanvas(400, 400);
@@ -34,14 +34,14 @@ function draw() {
 		bullets[j].moveBullet();
 		
 		if(bullets[j].enemy) {
-			boolean hitPlayer = bullets[j].checkHitPlayer(pship);
+			var hitPlayer = bullets[j].checkHitPlayer(pship);
 			if(hitPlayer) {
 				pship.life -= 10;
 			}
 		}
 		else {
 			for(var k = eships_level1 - 1; k > 0; k--) {
-				boolean hitEnemy = bullets[j].checkHitEnemy(eships_level1[k]);
+				var hitEnemy = bullets[j].checkHitEnemy(eships_level1[k]);
 				if(hitEnemy) {
 					eships_level1[k].splice(k,1);
 				}
