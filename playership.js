@@ -29,6 +29,15 @@ class Playership {
   }
 	
 	moveShip() {
-		this.pos.x = constrain(mouseX, 0, width-this.w);
+		//this.pos.x = constrain(mouseX, 0, width-this.w);
+		
+		var m = createVector(mouseX-this.w/2,this.pos.y);
+		var newDir = p5.Vector.sub(m, this.pos);
+		newDir.normalize();
+		newDir.mult(0.75); // scale
+		this.vel.add(newDir);
+		this.vel.limit(20); //TOP_SPEED
+		this.pos.add(this.vel);
+		this.pos.x = constrain(this.pos.x,0,width-this.w);
 	}
 }
